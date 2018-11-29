@@ -4,16 +4,20 @@
 > 项目采用 git 管理，每一个分支对应着一个功能点，除 `master` 分支外，其他分支都以 `todomvc/stage-{index}` 的形式命名。 index 从 1 开始递增。
 > 项目使用了 [TodoMVC](http://todomvc.com/examples/vue/) 中的样式，实现了一个简单的 `todolist` 功能。
 
-### `master` 分支
+
+#### `master` 分支
 `master` 分支为使用 `vue-cli` 初始化项目之后的内容，没有做任何变动。
 
-### `todomvc/stage-1` 分支
+
+#### `todomvc/stage-1` 分支
 `todomvc/stage-1` 分支中仅使用 `vue` 来开发一个 `todolist`
 
-### `todomvc/stage-2` 分支
-`todomvc/stage-2` 分支中添加了 `vuex`，`vuex` 是前端页面的数据管理工具，通过使用 `vuex`，我们可以创建一个全局的 `store` 来保存待办事项的数据。
 
-### `todomvc/stage-3` 分支
+#### `todomvc/stage-2` 分支
+`todomvc/stage-2` 分支中添加了 `vuex`，`vuex` 是前端页面的数据管理工具，通过使用 `vuex`，我们可以创建一个全局的 `store` 来保存待办事项的数据。
+
+
+#### `todomvc/stage-3` 分支
 `todomvc/stage-3` 分支中添加了 `vue-router`，`vue-router` 是前端路由管理工具，在单页应用([SPA](https://baike.baidu.com/item/SPA/17536313?fr=aladdin))中，只有一个 HTML 页面，所有的内容都是通过 JavaScript 动态加载和渲染出来的。因此，需要一个路由来区分不同的内容，通过路由，可以映射不同的内容渲染到页面。
 
 
@@ -22,6 +26,6 @@
 `cd /path/to/your/project`
 ### 2. 安装依赖包。
 `npm install`
-### 3. 运行项目
+### 3. 运行项目
 `npm run dev`
 ### 4. 打开浏览器，访问 [http://localhost:8080](http://localhost:8080)
