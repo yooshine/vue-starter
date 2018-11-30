@@ -8,9 +8,9 @@
 ##### 1. [Nodejs](https://nodejs.org)
 进入 Nodejs 官网下载最新版 LTS 版本的 Node 包，当前为 10.14.1 LTS.
 
-Windows 与 MacOS 系统点击安装即可。 Linux 系统可参照[这里](https://nodejs.org/en/download/package-manager/)
+Windows 与 MacOS 系统点击安装即可。 Linux 系统可参照[这里](https://nodejs.org/en/download/package-manager/)
 
-安装完成 Nodejs 之后，可以使用 `node` 和 `npm` 命令，`npm` 为 node 包管理工具，类似于 Python 中的 `pip`，或者 Java 中的 `maven`.
+安装完成 Nodejs 之后，可以使用 `node` 和 `npm` 命令，`npm` 为 node 包管理工具，类似于 Python 中的 `pip`，或者 Java 中的 `maven`.
 
 ##### 2. `vue-cli`
 `vue-cli` 是初始化 Vue 项目的工具，使用 `npm install -g vue-cli` 来安装。
