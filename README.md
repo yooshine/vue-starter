@@ -5,14 +5,17 @@
 > 项目使用了 [TodoMVC](http://todomvc.com/examples/vue/) 中的样式，实现了一个简单的 `todolist` 功能。
 
 # Preparation
-##### 1. [Nodejs](https://nodejs.org)
+##### 1. [Git](https://git-scm.com/)
+运行本项目中的代码，最好安装 git，可以切换到不同的分支进行查看代码。如果不安装 git，请选择 `todomvc/stage-1` 分支的代码进行下载。
+
+##### 2. [Nodejs](https://nodejs.org)
 进入 Nodejs 官网下载最新版 LTS 版本的 Node 包，当前为 10.14.1 LTS.
 
 Windows 与 MacOS 系统点击安装即可。 Linux 系统可参照[这里](https://nodejs.org/en/download/package-manager/)
 
 安装完成 Nodejs 之后，可以使用 `node` 和 `npm` 命令，`npm` 为 node 包管理工具，类似于 Python 中的 `pip`，或者 Java 中的 `maven`.
 
-##### 2. `vue-cli`
+##### 3. `vue-cli`
 `vue-cli` 是初始化 Vue 项目的工具，使用 `npm install -g vue-cli` 来安装。
 vue-cli
 
@@ -38,11 +41,11 @@ npm run dev
 `todomvc/stage-1` 分支中仅使用 `vue` 来开发一个 `todolist`
 
 
-#### `todomvc/stage-2` 分支
+#### TODO: `todomvc/stage-2` 分支 `todo`
 `todomvc/stage-2` 分支中添加了 `vuex`，`vuex` 是前端页面的数据管理工具，通过使用 `vuex`，我们可以创建一个全局的 `store` 来保存待办事项的数据。
 
 
-#### `todomvc/stage-3` 分支
+#### TODO: `todomvc/stage-3` 分支
 `todomvc/stage-3` 分支中添加了 `vue-router`，`vue-router` 是前端路由管理工具，在单页应用([SPA](https://baike.baidu.com/item/SPA/17536313?fr=aladdin))中，只有一个 HTML 页面，所有的内容都是通过 JavaScript 动态加载和渲染出来的。因此，需要一个路由来区分不同的内容，通过路由，可以映射不同的内容渲染到页面。
 
 
