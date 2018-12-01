@@ -26,7 +26,7 @@ vue-cli
 vue init webpack demo
 
 # 安装依赖
-cd demo && npm install
+cd demo && npm install
 
 # 运行项目
 npm run dev
@@ -41,7 +41,7 @@ npm run dev
 `todomvc/stage-1` 分支中仅使用 `vue` 来开发一个 `todolist`
 
 
-#### TODO: `todomvc/stage-2` 分支 `todo`
+#### TODO: `todomvc/stage-2` 分支
 `todomvc/stage-2` 分支中添加了 `vuex`，`vuex` 是前端页面的数据管理工具，通过使用 `vuex`，我们可以创建一个全局的 `store` 来保存待办事项的数据。
 
 
