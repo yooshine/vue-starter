@@ -1,24 +1,23 @@
-import todoStorage from '../../utils/storage'
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 
-const filters = {
-  all (todos) {
-    return todos
-  },
-  active (todos) {
-    return todos.filter(todo => !todo.completed)
-  },
-  completed (todos) {
-    return todos.filter(todo => todo.completed)
-  }
-}
+const state = mapState(['visibility', 'editedTodo'])
+const getters = mapGetters(['todos', 'filteredTodos', 'remaining'])
+const actions = mapActions([
+  'getTodos',
+  'addTodo',
+  'removeTodo',
+  'updateTodo',
+  'removeCompleted',
+  'completeTodo',
+  'completeAllTodos'
+])
+const mutations = mapMutations(['setEditedTodo', 'setVisibility', 'setAllDone', 'setTodoDone'])
 
 export default {
   data () {
     return {
-      todos: todoStorage.fetch(),
       newTodo: '',
-      editedTodo: null,
-      visibility: 'all'
+      cacheTodoBeforeEdit: null
     }
   },
 
@@ -30,79 +29,52 @@ export default {
     }
   },
 
-  watch: {
-    todos: {
-      handler: todoStorage.save,
-      deep: true
-    }
+  computed: {
+    ...state,
+    ...getters
   },
 
-  computed: {
-    filteredTodos () {
-      return filters[this.visibility](this.todos)
-    },
-    remaining () {
-      return filters.active(this.todos).length
-    },
-    allDone: {
-      get () {
-        return this.remaining === 0
-      },
-      set (value) {
-        this.todos.forEach(function (todo) {
-          todo.completed = value
-        })
-      }
-    }
+  created () {
+    this.getTodos()
   },
 
   methods: {
+    ...actions,
+    ...mutations,
+
     pluralize (word, count) {
       return word + (count === 1 ? '' : 's')
     },
 
-    addTodo () {
-      var value = this.newTodo && this.newTodo.trim()
-      if (!value) {
-        return
-      }
-      this.todos.push({ id: this.todos.length + 1, title: value, completed: false })
+    async saveTodo () {
+      await this.addTodo(this.newTodo)
       this.newTodo = ''
     },
 
-    removeTodo (todo) {
-      var index = this.todos.indexOf(todo)
-      this.todos.splice(index, 1)
+    editTodo (todo) {
+      this.cacheTodoBeforeEdit = { ...todo }
+      this.setEditedTodo(todo)
     },
 
-    editTodo (todo) {
-      this.beforeEditCache = todo.title
-      this.editedTodo = todo
+    setComplete (todo, event) {
+      this.completeTodo({ todo, event })
     },
 
     doneEdit (todo) {
-      if (!this.editedTodo) {
-        return
-      }
-      this.editedTodo = null
-      todo.title = todo.title.trim()
-      if (!todo.title) {
-        this.removeTodo(todo)
-      }
+      if (!this.editedTodo) return
+
+      this.setEditedTodo(null)
+      this.updateTodo(todo)
     },
 
     cancelEdit (todo) {
-      this.editedTodo = null
-      todo.title = this.beforeEditCache
-    },
-
-    removeCompleted () {
-      this.todos = filters.active(this.todos)
+      this.setEditedTodo(null)
+      todo.title = this.cacheTodoBeforeEdit.title
     },
 
     switchTodos (val, e) {
       e.preventDefault()
-      this.visibility = val
+      this.setVisibility(val)
     }
   }
 }
